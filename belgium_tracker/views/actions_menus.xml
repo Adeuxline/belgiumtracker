@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+    <record id="action_partis" model="ir.actions.act_window">
+      <field name="name">Partis</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">belgium_tracker.parti</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_deputes" model="ir.actions.act_window">
+      <field name="name">Députés</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">belgium_tracker.depute</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_seances" model="ir.actions.act_window">
+      <field name="name">Seances</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">belgium_tracker.seance</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_votes" model="ir.actions.act_window">
+      <field name="name">Votes</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">belgium_tracker.vote</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Belgium Tracker" id="menu_belgium_tracker" sequence="1" groups="base.group_user"/>
+    <menuitem id="menu_partis" parent="menu_belgium_tracker" action="action_partis" sequence="1"/>
+    <menuitem id="menu_deputes" parent="menu_belgium_tracker" action="action_deputes" sequence="2"/>
+    <menuitem id="menu_seances" parent="menu_belgium_tracker" action="action_seances" sequence="3"/>
+    <menuitem id="menu_votes" parent="menu_belgium_tracker" action="action_votes" sequence="4"/>
+  </data>
+</odoo>
