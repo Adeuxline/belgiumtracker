@@ -8,7 +8,11 @@
     ],
     'installable': True,
     'data': [
-        'data/ir.model.access.csv',
+        'security/groups.xml',
+        'security/ir.model.access.csv',
+        'views/depute_views.xml',
+        'views/parti_views.xml',
+        'views/seance_views.xml',
         'views/vote_views.xml',
         'views/actions_menus.xml',
     ],

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+    <record id="view_depute_form" model="ir.ui.view">
+      <field name="name">belgium_tracker.depute.form</field>
+      <field name="model">belgium_tracker.depute</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="first_name"/>
+              <field name="last_name"/>
+              <field name="parti_id"/>
+              <field name="langue"/>
+            </group>
+            <group>
+              <field name="genre"/>
+              <field name="date_naissance"/>
+              <field name="date_deces"/>
+            </group>
+            <group>
+              <field name="site"/>
+              <field name="photo"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_depute_list" model="ir.ui.view">
+      <field name="name">belgium_tracker.depute.list</field>
+      <field name="model">belgium_tracker.depute</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="parti_id"/>
+          <field name="langue"/>
+        </tree>
+      </field>
+    </record>
+  </data>
+</odoo>

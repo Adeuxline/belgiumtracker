@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+    <record id="view_parti_form" model="ir.ui.view">
+      <field name="name">belgium_tracker.parti.form</field>
+      <field name="model">belgium_tracker.parti</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="sigle"/>
+              <field name="name"/>
+            </group>
+            <group>
+            </group>
+            <notebook>
+              <page string="Députés">
+                <field name="deputes_ids" readonly="1"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_parti_list" model="ir.ui.view">
+      <field name="name">belgium_tracker.parti.list</field>
+      <field name="model">belgium_tracker.parti</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="sigle"/>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+  </data>
+</odoo>

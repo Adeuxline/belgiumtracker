@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
   <data>
-<!--     <record id="view_vote_form" model="ir.ui.view">
+    <record id="view_vote_form" model="ir.ui.view">
       <field name="name">belgium_tracker.vote.form</field>
       <field name="model">belgium_tracker.vote</field>
       <field name="arch" type="xml">
@@ -13,12 +13,20 @@
               <field name="ttype"/>
             </group>
             <group>
+              <field name="total_oui"/>
+              <field name="total_non"/>
+              <field name="total_abstentions"/>
+              <field name="total_autres"/>
             </group>
             <notebook>
-              <page>
-                <field name="deputes_choix_ids" mode="tree">
-                  <tree editable="bottom">
-                    <field name="name"/>
+              <page string="Description">
+                <field name="description"/>
+              </page>
+              <page string="Résultats des votes">
+                <field name="choix_ids" mode="tree" context="{'default_vote_id': active_id}">
+                  <tree>
+                    <field name="depute_id"/>
+                    <field name="choix"/>
                   </tree>
                 </field>
               </page>
@@ -27,5 +35,16 @@
         </form>
       </field>
     </record>
- -->  </data>
+    <record id="view_vote_list" model="ir.ui.view">
+      <field name="name">belgium_tracker.vote.list</field>
+      <field name="model">belgium_tracker.vote</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="seance_id"/>
+          <field name="name"/>
+          <field name="ttype"/>
+        </tree>
+      </field>
+    </record>
+  </data>
 </odoo>

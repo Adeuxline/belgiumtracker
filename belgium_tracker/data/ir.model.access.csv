@@ -1,6 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_belgium_tracker_parti,access_belgium_tracker_parti,model_belgium_tracker_parti,base.group_user,1,1,1,0
-access_belgium_tracker_depute,access_belgium_tracker_depute,model_belgium_tracker_depute,base.group_user,1,1,1,0
-access_belgium_tracker_seance,access_belgium_tracker_seance,model_belgium_tracker_seance,base.group_user,1,1,1,0
-access_belgium_tracker_vote,access_belgium_tracker_vote,model_belgium_tracker_vote,base.group_user,1,1,1,0
-access_belgium_tracker_choix,access_belgium_tracker_choix,model_belgium_tracker_choix,base.group_user,1,1,1,0
