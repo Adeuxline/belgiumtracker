@@ -19,6 +19,7 @@
               <field name="date_deces"/>
             </group>
             <group>
+              <field name="email"/>
               <field name="site"/>
               <field name="photo"/>
             </group>

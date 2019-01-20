@@ -12,6 +12,7 @@ class Depute(models.Model):
     # TODO gérer les changements de parti
     date_naissance = fields.Date()
     date_deces = fields.Date()
+    email = fields.Char()
     genre = fields.Selection([('m', 'M'), ('f', 'F')])
     langue = fields.Selection([('fr', 'Francophone'), ('nl', 'Néerlandophone')])
     site = fields.Char()

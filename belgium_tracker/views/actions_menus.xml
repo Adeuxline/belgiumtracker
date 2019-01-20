@@ -5,13 +5,13 @@
       <field name="name">Seances</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">belgium_tracker.seance</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,graph,pivot</field>
     </record>
     <record id="action_votes" model="ir.actions.act_window">
       <field name="name">Votes</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">belgium_tracker.vote</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,graph,pivot</field>
     </record>
     <record id="action_partis" model="ir.actions.act_window">
       <field name="name">Partis</field>
@@ -23,7 +23,7 @@
       <field name="name">Députés</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">belgium_tracker.depute</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,graph,pivot</field>
     </record>
     <record id="action_legislature" model="ir.actions.act_window">
       <field name="name">Législature</field>
