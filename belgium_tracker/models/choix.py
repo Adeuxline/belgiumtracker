@@ -22,3 +22,5 @@ class Choix(models.Model):
     def _compute_display_name(self):
         for choix in self:
             choix.display_name = "%s %s %s" % (choix.depute_id, choix.choix, choix.vote_id)
+
+    # TODO enregistrer le parti

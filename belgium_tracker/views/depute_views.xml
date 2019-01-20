@@ -19,9 +19,9 @@
               <field name="date_deces"/>
             </group>
             <group>
-              <field name="email"/>
-              <field name="site"/>
-              <field name="photo"/>
+              <field name="email" widget="email"/>
+              <field name="site" widget="url"/>
+              <field name="photo" widget="image"/>
             </group>
           </sheet>
         </form>

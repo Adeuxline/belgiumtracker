@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <data>
+    <template id="belgium_tracker.deputes" name="Députés">
+      <t t-call="website.layout">
+        <div id="wrap">
+          <div class="oe_structure">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h1>Députés</h1>
+                  <table class="table table-striped table-hover">
+                    <!-- TODO use BS4 cards instead -->
+                    <thead>
+                      <tr>
+                        <th>Nom</th>
+                        <th>Parti</th>
+                      </tr>
+                    </thead>
+                    <tr t-foreach="deputes" t-as="d">
+                      <td>
+                        <a t-field="d.name" t-att-href="'/mp/%s' % (slug(d))"/>
+                      </td>
+                      <td>
+                        <span t-field="d.parti_id"/>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </t>
+    </template>
+    <template id="belgium_tracker.depute" name="Député">
+      <t t-call="website.layout">
+        <div id="wrap">
+          <div class="oe_structure">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h1><span t-field="depute.name"/> <small t-field="depute.parti_id"/></h1>
+
+                </div>
+                <div class="col-lg-12">
+                  <h2>Ses derniers votes</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </t>
+    </template>
+    <template id="belgium_tracker.seances" name="Séances">
+      <t t-call="website.layout">
+        <div id="wrap">
+          <div class="oe_structure">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h1>Séances</h1>
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>Numéro</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tr t-foreach="seances" t-as="s">
+                      <td>
+                        <a t-field="s.name" t-att-href="'/seance/%s' % (slug(s))"/>
+                      </td>
+                      <td>
+                        <span t-field="s.date"/>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </t>
+    </template>
+    <template id="belgium_tracker.seance" name="Séance">
+      <t t-call="website.layout">
+        <div id="wrap">
+          <div class="oe_structure">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h1>Séance du <t t-esc="seance.date"/> (<span t-field="seance.moment"/>)</h1>
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>Vote</th>
+                        <th>Type</th>
+                        <th>Oui</th>
+                        <th>Non</th>
+                        <th>Abstention</th>
+                        <th>Autre</th>
+                      </tr>
+                    </thead>
+                    <tr t-foreach="seance.votes_ids" t-as="v">
+                      <td>
+                        <a t-esc="v.name" t-att-href="'/vote/%s' % slug(v)"/>
+                      </td>
+                      <td t-esc="v.ttype"/>
+                      <td t-esc="v.total_oui"/>
+                      <td t-esc="v.total_non"/>
+                      <td t-esc="v.total_abstentions"/>
+                      <td t-esc="v.total_autres"/>
+                    </tr>
+                  </table>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <p>
+                      <a href="/seances">Retour à la liste des séances</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </t>
+    </template>
+    <template id="belgium_tracker.vote" name="Vote">
+      <t t-call="website.layout">
+        <div id="wrap">
+          <div class="oe_structure">
+            <div class="container">
+              <div class="row">
+                <div class="jumbotron">
+                  <h1 t-esc="vote.name"/>
+                  <h2>Pour: <t t-esc="vote.total_oui"/></h2>
+                  <h2>Contre: <t t-esc="vote.total_non"/></h2>
+                  <h2>Abstentions: <t t-esc="vote.total_abstentions"/></h2>
+                </div>
+                <div class="col-lg-12">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>Député</th>
+                        <th>Parti</th>
+                        <th>Choix</th>
+                      </tr>
+                    </thead>
+                    <tr t-foreach="vote.choix_ids" t-as="c">
+                      <td>
+                        <a t-field="c.depute_id" t-att-href="'/mp/%s' % (slug(c.depute_id))"/>
+                      </td>
+                      <td>
+                        <a t-field="c.parti_id" t-att-href="'/parti/%s' % (slug(c.parti_id))"/>
+                      </td>
+                      <td>
+                        <span t-field="c.choix"/>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-12">
+                    <p>
+                      <a t-att-href="'/seance/%s' % slug(vote.seance_id)">Retour à la séance</a>
+                    </p>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </t>
+    </template>
+  </data>
+</odoo>

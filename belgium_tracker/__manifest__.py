@@ -15,6 +15,7 @@
         'views/seance_views.xml',
         'views/vote_views.xml',
         'views/actions_menus.xml',
+        'templates/deputes_templates.xml',
     ],
     'application': True,
 }

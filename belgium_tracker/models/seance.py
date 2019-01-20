@@ -11,3 +11,4 @@ class Seance(models.Model):
     date = fields.Date(required=True, default=fields.Date.context_today)
     moment = fields.Selection([('am', 'Matin'), ('pm', 'Après-midi'), ('soir', 'Soir'), ('journee', 'Journée entière')], required=True)
     approuve = fields.Boolean()
+    votes_ids = fields.One2many('belgium_tracker.vote', 'seance_id')
