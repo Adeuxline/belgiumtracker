@@ -9,6 +9,7 @@ class VotesController(http.Controller):
     def mps(self):
         deputes = request.env['belgium_tracker.depute'].search([])
         # TODO search last legislature only
+        # FIXME make it reachable by public users
         return request.render('belgium_tracker.deputes', {'deputes': deputes})
 
     @http.route(['/mp/<model("belgium_tracker.depute"):depute>'], type='http', auth='public', website=True)
@@ -18,6 +19,7 @@ class VotesController(http.Controller):
     @http.route(['/seances'], type='http', auth='public', website=True)
     def seances(self):
         seances = request.env['belgium_tracker.seance'].search([])
+        # FIXME make it reachable by public users
         return request.render('belgium_tracker.seances', {'seances': seances})
 
     @http.route(['/seance/<model("belgium_tracker.seance"):seance>'], type='http', auth='public', website=True)
