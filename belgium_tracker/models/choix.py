@@ -23,4 +23,11 @@ class Choix(models.Model):
         for choix in self:
             choix.display_name = "%s %s %s" % (choix.depute_id.display_name, choix.choix, choix.vote_id.display_name)
 
-    # TODO enregistrer le parti
+    @api.model_create_multi
+    def create(self, vals_list):
+        # copy the party of the deputy at the moment where it is created
+        for value in vals_list:
+            if 'parti_id' not in value:
+                value['parti_id'] = self.env['belgium_tracker.depute'].browse(value['depute_id']).parti_id.id
+        res = super(Choix, self).create(vals_list)
+        return res
