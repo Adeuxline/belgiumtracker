@@ -8,6 +8,7 @@ class VotesController(http.Controller):
     @http.route(['/mps'], type='http', auth='public', website=True)
     def mps(self):
         deputes = request.env['belgium_tracker.depute'].search([])
+        # last_legislature = request.env['belgium_tracker.legislature'].sudo().search([], limit=1)
         # TODO search last legislature only
         # FIXME make it reachable by public users
         return request.render('belgium_tracker.deputes', {'deputes': deputes})

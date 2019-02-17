@@ -5,3 +5,4 @@ from . import seance
 from . import vote
 from . import choix
 from . import legislature
+from . import programme

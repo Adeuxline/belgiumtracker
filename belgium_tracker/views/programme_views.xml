@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+    <record id="view_programme_form" model="ir.ui.view">
+      <field name="name">belgium_tracker.programme.form</field>
+      <field name="model">belgium_tracker.programme</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="titre"/>
+            </group>
+            <group>
+            </group>
+            <notebook>
+              <page string="Propositions">
+                <field name="proposition_ids" context="{'default_programme_id': active_id}"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_programme_list" model="ir.ui.view">
+      <field name="name">belgium_tracker.programme.list</field>
+      <field name="model">belgium_tracker.programme</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="titre"/>
+          <field name="parti_id"/>
+        </tree>
+      </field>
+    </record>
+    <record id="view_proposition_form" model="ir.ui.view">
+      <field name="name">belgium_tracker.proposition.form</field>
+      <field name="model">belgium_tracker.proposition</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="titre"/>
+              <field name="programme_id"/>
+              <field name="parti_id"/>
+            </group>
+            <group>
+                <field name="description"/>
+                <field name="tags_ids" widget="many2many_tags"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_proposition_list" model="ir.ui.view">
+      <field name="name">belgium_tracker.proposition.list</field>
+      <field name="model">belgium_tracker.proposition</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="titre"/>
+          <field name="programme_id"/>
+        </tree>
+      </field>
+    </record>
+  </data>
+</odoo>

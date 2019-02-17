@@ -13,6 +13,18 @@
       <field name="res_model">belgium_tracker.vote</field>
       <field name="view_mode">tree,form,graph,pivot</field>
     </record>
+    <record id="action_programmes" model="ir.actions.act_window">
+      <field name="name">Programmes</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">belgium_tracker.programme</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_propositions" model="ir.actions.act_window">
+      <field name="name">Propositions</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">belgium_tracker.proposition</field>
+      <field name="view_mode">tree,form</field>
+    </record>
     <record id="action_partis" model="ir.actions.act_window">
       <field name="name">Partis</field>
       <field name="type">ir.actions.act_window</field>
@@ -36,7 +48,10 @@
     <menuitem name="Travail Parlementaire" id="menu_travail_parlementaire" parent="menu_belgium_tracker" sequence="1"/>
     <menuitem id="menu_seances" parent="menu_travail_parlementaire" action="action_seances" sequence="1"/>
     <menuitem id="menu_votes" parent="menu_travail_parlementaire" action="action_votes" sequence="2"/>
-    <menuitem name="Master Data" id="menu_master_data" parent="menu_belgium_tracker" sequence="2"/>
+    <menuitem name="Programmes" id="menu_programmes_partis" parent="menu_belgium_tracker" sequence="2"/>
+    <menuitem id="menu_programmes" parent="menu_programmes_partis" action="action_programmes" sequence="1"/>
+    <menuitem id="menu_propositions" parent="menu_programmes_partis" action="action_propositions" sequence="2"/>
+    <menuitem name="Master Data" id="menu_master_data" parent="menu_belgium_tracker" sequence="3"/>
     <menuitem id="menu_partis" parent="menu_master_data" action="action_partis" sequence="1"/>
     <menuitem id="menu_deputes" parent="menu_master_data" action="action_deputes" sequence="2"/>
     <menuitem id="menu_legislature" parent="menu_master_data" action="action_legislature" sequence="3"/>
