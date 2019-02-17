@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <data>
+    <record id="menu_front_deputes" model="website.menu">
+      <field name="name">Les député·e·s</field>
+      <field name="url">/deputes</field>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence">20</field>
+    </record>
+    <record id="menu_front_seances" model="website.menu">
+      <field name="name">Les séances de la Chambre</field>
+      <field name="url">/seances</field>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence">20</field>
+    </record>
+  </data>
+</odoo>

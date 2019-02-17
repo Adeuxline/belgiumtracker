@@ -5,22 +5,21 @@ from odoo.http import request
 
 class VotesController(http.Controller):
 
-    @http.route(['/mps'], type='http', auth='public', website=True)
-    def mps(self):
+    @http.route(['/deputes'], type='http', auth='public', website=True)
+    def deputes(self):
         deputes = request.env['belgium_tracker.depute'].search([])
-        # last_legislature = request.env['belgium_tracker.legislature'].sudo().search([], limit=1)
         # TODO search last legislature only
-        # FIXME make it reachable by public users
+        # last_legislature = request.env['belgium_tracker.legislature'].search([], limit=1)
         return request.render('belgium_tracker.deputes', {'deputes': deputes})
 
-    @http.route(['/mp/<model("belgium_tracker.depute"):depute>'], type='http', auth='public', website=True)
+    @http.route(['/depute/<model("belgium_tracker.depute"):depute>'], type='http', auth='public', website=True)
     def depute(self, depute):
-        return request.render('belgium_tracker.depute', {'depute': depute})
+        choix = request.env['belgium_tracker.choix'].search([('depute_id', '=', depute.id)])
+        return request.render('belgium_tracker.depute', {'depute': depute, 'choix': choix})
 
     @http.route(['/seances'], type='http', auth='public', website=True)
     def seances(self):
         seances = request.env['belgium_tracker.seance'].search([])
-        # FIXME make it reachable by public users
         return request.render('belgium_tracker.seances', {'seances': seances})
 
     @http.route(['/seance/<model("belgium_tracker.seance"):seance>'], type='http', auth='public', website=True)

@@ -26,3 +26,7 @@ class ProgrammeTag(models.Model):
     _name = 'belgium_tracker.programme_tag'
 
     name = fields.Char('Nom', required=True, index=True)
+
+    _sql_constraints = [
+        ('name_uniq', 'UNIQUE(name)', 'Tag name must be unique.'),
+    ]

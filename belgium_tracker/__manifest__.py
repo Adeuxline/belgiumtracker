@@ -17,6 +17,7 @@
         'views/vote_views.xml',
         'views/actions_menus.xml',
         'templates/deputes_templates.xml',
+        'data/website_menu.xml',
     ],
     'application': True,
 }

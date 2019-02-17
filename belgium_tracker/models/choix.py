@@ -21,6 +21,6 @@ class Choix(models.Model):
     @api.depends('depute_id', 'choix', 'vote_id')
     def _compute_display_name(self):
         for choix in self:
-            choix.display_name = "%s %s %s" % (choix.depute_id, choix.choix, choix.vote_id)
+            choix.display_name = "%s %s %s" % (choix.depute_id.display_name, choix.choix, choix.vote_id.display_name)
 
     # TODO enregistrer le parti
