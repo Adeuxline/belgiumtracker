@@ -9,6 +9,7 @@
           <sheet>
             <group>
               <field name="titre"/>
+              <field name="parti_id"/>
             </group>
             <group>
             </group>
