@@ -4,11 +4,12 @@ from odoo import api, models, fields
 
 class Depute(models.Model):
     _name = 'belgium_tracker.depute'
+    _inherit = ['mail.thread']
 
     name = fields.Char('Nom complet', compute='_compute_name', store=True, index=True)
     first_name = fields.Char('Prénom', required=True, index=True)
     last_name = fields.Char('Nom', required=True, index=True)
-    parti_id = fields.Many2one('belgium_tracker.parti', index=True)
+    parti_id = fields.Many2one('belgium_tracker.parti', index=True, track_visibility='onchange')
     # TODO gérer les changements de parti
     date_naissance = fields.Date()
     date_deces = fields.Date()

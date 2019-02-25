@@ -19,6 +19,10 @@
               </page>
             </notebook>
           </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" colspan="4" widget="mail_thread" nolabel="1"/>
+          </div>
         </form>
       </field>
     </record>
@@ -48,6 +52,10 @@
                 <field name="tags_ids" widget="many2many_tags"/>
             </group>
           </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" colspan="4" widget="mail_thread" nolabel="1"/>
+          </div>
         </form>
       </field>
     </record>

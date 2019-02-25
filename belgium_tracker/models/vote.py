@@ -8,6 +8,7 @@ TOTAL_DEPUTES_CHAMBRE = 150
 class Vote(models.Model):
     _name = 'belgium_tracker.vote'
     _order = 'seance_id'
+    _inherit = ['mail.thread']
 
     name = fields.Char(required=True)
     seance_id = fields.Many2one('belgium_tracker.seance', required=True, index=True)

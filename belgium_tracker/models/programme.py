@@ -5,6 +5,7 @@ from odoo import api, models, fields
 class Programme(models.Model):
     _name = 'belgium_tracker.programme'
     _rec_name = 'titre'
+    _inherit = ['mail.thread']
 
     titre = fields.Char('Titre', required=True)
     parti_id = fields.Many2one('belgium_tracker.parti', index=True, required=True)
@@ -14,6 +15,7 @@ class Programme(models.Model):
 class Proposition(models.Model):
     _name = 'belgium_tracker.proposition'
     _rec_name = 'titre'
+    _inherit = ['mail.thread']
 
     titre = fields.Char('Titre', required=True)
     description = fields.Html()
