@@ -1,5 +1,5 @@
 # coding: utf-8
-from odoo import models, fields
+from odoo import api, models, fields
 
 
 class Parti(models.Model):
@@ -10,3 +10,8 @@ class Parti(models.Model):
     name = fields.Char('Nom', required=True)
     sigle = fields.Char(required=True)
     deputes_ids = fields.One2many('belgium_tracker.depute', 'parti_id')
+
+    @api.model
+    def name_create(self, name):
+        parti = self.create({'name': name, 'sigle': name})
+        return parti.name_get()[0]

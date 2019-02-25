@@ -17,7 +17,7 @@ class Depute(models.Model):
     genre = fields.Selection([('m', 'M'), ('f', 'F')])
     langue = fields.Selection([('fr', 'Francophone'), ('nl', 'Néerlandophone')])
     site = fields.Char()
-    photo = fields.Binary()
+    photo = fields.Binary(attachment=True)
 
     @api.depends('first_name', 'last_name')
     def _compute_name(self):
