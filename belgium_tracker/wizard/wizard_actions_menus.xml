@@ -9,8 +9,17 @@
       <field name="view_type">form</field>
       <field name="target">new</field>
     </record>
+    <record id="action_import_seances_votes" model="ir.actions.act_window">
+      <field name="name">Import Séances Votes</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">belgium_tracker.wizard_import_seance_votes</field>
+      <field name="view_mode">form</field>
+      <field name="view_type">form</field>
+      <field name="target">new</field>
+    </record>
 
-    <menuitem name="Import" id="menu_import" parent="menu_belgium_tracker" sequence="4"/>
+    <menuitem name="Import" id="menu_import" parent="menu_belgium_tracker" sequence="4" groups="belgium_tracker.group_belgium_tracker_manager"/>
     <menuitem id="menu_import_deputes" parent="menu_import" action="action_import_deputes" sequence="1"/>
+    <menuitem id="menu_import_seances_votes" parent="menu_import" action="action_import_seances_votes" sequence="2"/>
   </data>
 </odoo>

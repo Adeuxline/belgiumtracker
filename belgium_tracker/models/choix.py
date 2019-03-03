@@ -7,7 +7,7 @@ class Choix(models.Model):
     _order = 'vote_id DESC, choix DESC'
 
     display_name = fields.Char(compute='_compute_display_name')
-    vote_id = fields.Many2one('belgium_tracker.vote', required=True, index=True)
+    vote_id = fields.Many2one('belgium_tracker.vote', required=True, index=True, ondelete='cascade')
     depute_id = fields.Many2one('belgium_tracker.depute', required=True, index=True)
     parti_id = fields.Many2one('belgium_tracker.parti', readonly=True, index=True)
     choix = fields.Selection([('pour', 'Pour'),

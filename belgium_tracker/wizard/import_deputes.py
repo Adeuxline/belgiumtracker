@@ -54,6 +54,10 @@ class WizardImportDepute(models.TransientModel):
                                                        'photo': pic_data,
                                                        })
         csv_data.close()
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload',
+        }
 
     def _scrape_to_file(self, doc, url):
         html_doc = request.urlopen(url)
@@ -188,4 +192,4 @@ class WizardImportDepute(models.TransientModel):
                         site = '\n'
                     doc.write(site)
             print(first_name, last_name, picture, langue, sexe, naissance, parti_id, mail, site)
-        return doc
+        # return doc

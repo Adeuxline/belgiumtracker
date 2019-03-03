@@ -4,6 +4,7 @@
     'version': '1.0',
     'depends': [
         'mail',
+        'document',
         'website',
     ],
     'installable': True,
@@ -18,6 +19,7 @@
         'views/actions_menus.xml',
         'templates/deputes_templates.xml',
         'wizard/import_deputes_views.xml',
+        'wizard/import_seances_votes_views.xml',
         'wizard/wizard_actions_menus.xml',
         'data/website_menu.xml',
     ],
