@@ -1,15 +1,31 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
   <data>
-    <record id="view_import_seance_votes_form" model="ir.ui.view">
-      <field name="name">belgium_tracker.wizard_import_seance_votes.form</field>
-      <field name="model">belgium_tracker.wizard_import_seance_votes</field>
+    <record id="view_import_seance_form" model="ir.ui.view">
+      <field name="name">belgium_tracker.wizard_import_seance.form</field>
+      <field name="model">belgium_tracker.wizard_import_seance</field>
       <field name="arch" type="xml">
-        <form string="Import Séances votes">
-          <p>This wizard (attemps to) import(s) all the votes and the seances from the following legislature:</p>
+        <form string="Import Séances">
+          <p>This wizard (attemps to) import(s) all the seances from the following legislature:</p>
           <group>
             <field name="legislature_id" options="{'no_create': True}"/>
             <field name="seance_limit_no"/>
+          </group>
+          <footer>
+            <button type="object" name="action_scrape" string="Go for it, let's break the db!" class="btn-primary"/>
+            <button string="Let me get out of here!" class="btn-secondary" special="cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+    <record id="view_import_vote_form" model="ir.ui.view">
+      <field name="name">belgium_tracker.wizard_import_vote.form</field>
+      <field name="model">belgium_tracker.wizard_import_vote</field>
+      <field name="arch" type="xml">
+        <form string="Import Votes">
+          <p>This wizard (attemps to) import(s) all the votes following seance:</p>
+          <group>
+            <field name="seance_id" options="{'no_create': True}"/>
           </group>
           <footer>
             <button type="object" name="action_scrape" string="Go for it, let's break the db!" class="btn-primary"/>

@@ -1,5 +1,5 @@
 # coding: utf-8
-from odoo import models, fields
+from odoo import api, models, fields
 
 
 class Seance(models.Model):
@@ -13,3 +13,10 @@ class Seance(models.Model):
     moment = fields.Selection([('am', 'Matin'), ('pm', 'Après-midi'), ('soir', 'Soir'), ('journee', 'Journée entière')], required=True)
     approuve = fields.Boolean(track_visibility='onchange')
     votes_ids = fields.One2many('belgium_tracker.vote', 'seance_id')
+
+    @api.multi
+    def button_display_votes(self):
+        self.ensure_one()
+        action_dict = self.env.ref('belgium_tracker.action_votes').read()[0]
+        action_dict.update(context="{'domain': [('seance_id', '=', %d)], 'default_seance_id': %d}" % (self.id, self.id))
+        return action_dict
