@@ -31,6 +31,12 @@
       <field name="res_model">belgium_tracker.parti</field>
       <field name="view_mode">tree,form</field>
     </record>
+    <record id="action_programme_tags" model="ir.actions.act_window">
+      <field name="name">Tags</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">belgium_tracker.programme_tag</field>
+      <field name="view_mode">tree,form</field>
+    </record>
     <record id="action_deputes" model="ir.actions.act_window">
       <field name="name">Députés</field>
       <field name="type">ir.actions.act_window</field>
@@ -51,6 +57,7 @@
     <menuitem name="Programmes" id="menu_programmes_partis" parent="menu_belgium_tracker" sequence="2"/>
     <menuitem id="menu_programmes" parent="menu_programmes_partis" action="action_programmes" sequence="1"/>
     <menuitem id="menu_propositions" parent="menu_programmes_partis" action="action_propositions" sequence="2"/>
+    <menuitem id="menu_programme_tags" parent="menu_programmes_partis" action="action_programme_tags" sequence="3"/>
     <menuitem name="Master Data" id="menu_master_data" parent="menu_belgium_tracker" sequence="3"/>
     <menuitem id="menu_partis" parent="menu_master_data" action="action_partis" sequence="1"/>
     <menuitem id="menu_deputes" parent="menu_master_data" action="action_deputes" sequence="2"/>

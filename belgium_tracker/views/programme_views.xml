@@ -49,7 +49,7 @@
             </group>
             <group>
                 <field name="description"/>
-                <field name="tags_ids" widget="many2many_tags"/>
+                <field name="tags_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             </group>
           </sheet>
           <div class="oe_chatter">
@@ -67,6 +67,29 @@
           <field name="titre"/>
           <field name="programme_id"/>
         </tree>
+      </field>
+    </record>
+    <record id="view_programme_tag_list" model="ir.ui.view">
+      <field name="name">belgium_tracker.programme_tag.list</field>
+      <field name="model">belgium_tracker.programme_tag</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="display_name"/>
+        </tree>
+      </field>
+    </record>
+    <record id="view_programme_tag_form" model="ir.ui.view">
+      <field name="name">belgium_tracker.programme_tag.form</field>
+      <field name="model">belgium_tracker.programme_tag</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="parent_id"/>
+            </group>
+          </sheet>
+        </form>
       </field>
     </record>
   </data>
