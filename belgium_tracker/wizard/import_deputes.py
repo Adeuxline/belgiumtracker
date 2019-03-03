@@ -1,4 +1,5 @@
 # coding: utf-8
+import re
 from base64 import b64encode
 from bs4 import BeautifulSoup
 from csv import DictReader
@@ -46,8 +47,7 @@ class WizardImportDepute(models.TransientModel):
                                                        'last_name': row['first_name'],
                                                        'langue': row['langue'],
                                                        'genre': row['genre'],
-                                                       # FIXME Gros hack pourri
-                                                       'date_naissance': row['date_naissance'] if row['first_name'] != 'Luykx' else False,
+                                                       'date_naissance': row['date_naissance'],
                                                        'email': row['email'],
                                                        'site': row['site'],
                                                        'parti_id': partis_ids[row['parti_id']],
@@ -102,11 +102,13 @@ class WizardImportDepute(models.TransientModel):
                             sexe = 'm' + ','
 
             # Pour trouver la date de naissance
+                        naissance_string = re.compile(r"(Née? à .+ le (\d{1,2}|1er) .+ \d{4}|Née? le (\d{1,2}|1er) .+ \d{4})")
                         description = niveau_2.split('|')
 
                         for x in description:
                             if 'Né' in x:
-                                data = ' '.join(x.split())
+                                x_clean = naissance_string.findall(x)
+                                data = ' '.join(x_clean[0][0].split())
                                 data = data.split(' ')
                                 data = data[-3:]
                                 data[2] = data[2][:4]
