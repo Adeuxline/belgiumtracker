@@ -14,6 +14,8 @@ class Vote(models.Model):
     seance_id = fields.Many2one('belgium_tracker.seance', required=True, index=True)
     ttype = fields.Selection([('projet', 'Projet de loi'),
                               ('proposition', 'Proposition de loi'),
+                              ('proposition_resolution', 'Proposition de résolution'),
+                              ('proposition_rejet', 'Proposition de rejet'),
                               ('amendement', 'Amendement'),
                               ('other', 'Autre')], required=True, index=True)
     description = fields.Html()

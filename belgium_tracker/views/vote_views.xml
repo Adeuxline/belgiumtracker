@@ -47,6 +47,7 @@
           <field name="seance_id"/>
           <field name="name"/>
           <field name="ttype"/>
+          <field name="description"/>
         </tree>
       </field>
     </record>

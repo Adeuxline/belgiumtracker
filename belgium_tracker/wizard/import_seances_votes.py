@@ -240,29 +240,29 @@ class WizardImportVote(models.TransientModel):
                 t = t + 1
                 if 'projet de loi' in lines[i - 3] or 'Projet de loi' in lines[i - 3]:
                     compteur = compteur + 1
-                    temp_vote.append('Projet de loi')
+                    temp_vote.append('projet')
                 elif 'proposition de résolution' in lines[i - 3] or 'Proposition de résolution' in lines[i - 3]:
                     compteur = compteur + 1
-                    temp_vote.append('Proposition de résolution')
+                    temp_vote.append('proposition_resolution')
                 elif 'proposition de rejet' in lines[i - 3] or 'Proposition de rejet' in lines[i - 3]:
                     compteur = compteur + 1
-                    temp_vote.append('Proposition de rejet')
+                    temp_vote.append('proposition_rejet')
                 elif 'proposition de loi' in lines[i - 3] or 'Proposition de loi' in lines[i - 3]:
                     compteur = compteur + 1
-                    temp_vote.append('Proposition de loi')
+                    temp_vote.append('proposition')
                 elif 'Stemming over amendement' in lines[i - 2][0:24]:
                     compteur = compteur + 1
-                    temp_vote.append('Amendement')
+                    temp_vote.append('amendement')
                 elif 'Vote sur l\'amendement' in lines[i - 2][0:21]:
                     compteur = compteur + 1
-                    temp_vote.append('Amendement')
+                    temp_vote.append('amendement')
                 else:
-                    temp_vote.append('À TROUVER.')
+                    temp_vote.append('other')
                 temp_vote.append(title)
             # Pour les votes qui ont été annulés... Comme le vote 37 dans la séance 264
             elif '(Stemming nr.' in lines[i]:
                 temp_vote.append(lines[i][14] + lines[i][15])
-                temp_vote.append('À TROUVER')
+                temp_vote.append('other')
                 cancel = cancel + 1
                 temp_vote.append("Vote annulé")
             if len(temp_vote) > 1:
@@ -302,7 +302,7 @@ class WizardImportVote(models.TransientModel):
                     temp[i].append(data[1])
                     # liste oui
                     if '000' in lines[j + bonus]:
-                        temp[i].append(' ')
+                        temp[i].append([])
                     else:
                         bonus = bonus + 1
                         data = lines[j + bonus].split(', ')
@@ -313,7 +313,7 @@ class WizardImportVote(models.TransientModel):
                     temp[i].append(data[1])
                     # liste non
                     if '000' in lines[j + bonus]:
-                        temp[i].append(' ')
+                        temp[i].append([])
                     else:
                         bonus = bonus + 1
                         data = lines[j + bonus].split(', ')
@@ -324,7 +324,7 @@ class WizardImportVote(models.TransientModel):
                     temp[i].append(data[1])
                     # liste abs
                     if '000' in lines[j + bonus]:
-                        temp[i].append(' ')
+                        temp[i].append([])
                     else:
                         bonus = bonus + 1
                         data = lines[j + bonus].split(', ')
@@ -332,11 +332,30 @@ class WizardImportVote(models.TransientModel):
 
                     compteur = compteur + 1
 
-        # TODO here create votes from data
-        # TODO fix this
+        Vote = self.env['belgium_tracker.vote']
+
+        deputes_name_id_map = {'%s %s' % (d['last_name'], d['first_name']): d['id'] for d in self.env['belgium_tracker.depute'].search_read([], ['first_name', 'last_name', 'id'])}
+
+        votes_values = []
         for vote in temp:
-            body = PrettyPrinter().pformat(vote)
-            self.seance_id.message_post(body=body)
+            choix_values = []
+            # yes
+            for depute in vote[4]:
+                choix_values.append((0, None, {'depute_id': deputes_name_id_map[depute], 'choix': 'pour'}))
+            # no
+            for depute in vote[6]:
+                choix_values.append((0, None, {'depute_id': deputes_name_id_map[depute], 'choix': 'contre'}))
+            # abs
+            for depute in vote[8]:
+                choix_values.append((0, None, {'depute_id': deputes_name_id_map[depute], 'choix': 'abs'}))
+            vote_values = {'name': vote[0],
+                           'seance_id': self.seance_id.id,
+                           'ttype': vote[1],
+                           'description': vote[2],
+                           'choix_ids': choix_values}
+            votes_values.append(vote_values)
+
+        Vote.create(votes_values)
 
         return {
             'type': 'ir.actions.client',
