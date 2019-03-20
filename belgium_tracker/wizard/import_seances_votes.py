@@ -1,4 +1,5 @@
 # coding: utf-8
+import re
 from bs4 import BeautifulSoup, SoupStrainer
 from csv import DictReader
 from io import StringIO
@@ -214,9 +215,24 @@ class WizardImportVote(models.TransientModel):
         compteur = 0
         t = 0
         cancel = 0
+
+        DOCUMENT_NUMBER_IN_LINE = re.compile(r'.*\([0-9]{4}/[0-9]+([-|+][0-9])?\).*')
+        # should match
+        # title (1234/5) popo
+        # title (1234/6-7) popop
+        # title (1234/1+4) popop
+        # title (1234/12) popop
+
         for i in range(0, len(lines)):
             temp_vote = []
             if '(Stemming/vote ' in lines[i] or 'Vote/stemming ' in lines[i]:
+                title = ""
+                three_lines_above = lines[i - 3]
+                two_lines_above = lines[i - 2]
+                if DOCUMENT_NUMBER_IN_LINE.match(three_lines_above):
+                    title += three_lines_above
+                if DOCUMENT_NUMBER_IN_LINE.match(two_lines_above):
+                    title += two_lines_above
                 if str(lines[i][16]) == ')':
                     temp_vote.append(str('00') + str(lines[i][15]))
                 else:
@@ -242,11 +258,13 @@ class WizardImportVote(models.TransientModel):
                     temp_vote.append('Amendement')
                 else:
                     temp_vote.append('À TROUVER.')
+                temp_vote.append(title)
             # Pour les votes qui ont été annulés... Comme le vote 37 dans la séance 264
             elif '(Stemming nr.' in lines[i]:
                 temp_vote.append(lines[i][14] + lines[i][15])
                 temp_vote.append('À TROUVER')
                 cancel = cancel + 1
+                temp_vote.append("Vote annulé")
             if len(temp_vote) > 1:
                 temp.append(temp_vote)
 
