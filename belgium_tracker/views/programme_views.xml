@@ -66,6 +66,7 @@
         <tree>
           <field name="titre"/>
           <field name="programme_id"/>
+          <field name="parti_id"/>
         </tree>
       </field>
     </record>
