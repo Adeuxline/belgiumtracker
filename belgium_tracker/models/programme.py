@@ -30,9 +30,11 @@ class ProgrammeTag(models.Model):
     _parent_name = 'parent_id'
     _parent_store = True
     _rec_name = 'display_name'
-    _order = 'display_name'
+    _order = 'code, display_name'
 
     name = fields.Char('Nom', required=True, index=True)
+    active = fields.Boolean(default=True)
+    code = fields.Char('Code EUROVOC', index=True)
     display_name = fields.Char('Nom complet', compute='_compute_display_name', store=True, index=True)
     parent_id = fields.Many2one('belgium_tracker.programme_tag', 'Tag Parent', index=True, ondelete='cascade')
     parent_path = fields.Char(index=True)

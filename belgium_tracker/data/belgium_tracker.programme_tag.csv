@@ -1,0 +1,149 @@
+id,active,name,code,parent_id:id
+eurovoc_04,true,vie politique,04,
+eurovoc_08,true,relations internationales,08,
+eurovoc_10,true,union européenne,10,
+eurovoc_12,true,droit,12,
+eurovoc_16,true,économie,16,
+eurovoc_20,true,échanges économiques et commerciaux,20,
+eurovoc_24,true,finances,24,
+eurovoc_28,true,questions sociales,28,
+eurovoc_32,true,éducation et communication,32,
+eurovoc_36,true,sciences,36,
+eurovoc_40,true,entreprise et concurrence,40,
+eurovoc_44,true,emploi et travail,44,
+eurovoc_48,true,transports,48,
+eurovoc_52,true,environnement,52,
+eurovoc_56,true,"agriculture, sylviculture et pêche",56,
+eurovoc_60,true,agro-alimentaire,60,
+eurovoc_64,true,"production, technologie et recherche",64,
+eurovoc_66,true,énergie,66,
+eurovoc_68,true,industrie,68,
+eurovoc_72,true,géographie,72,
+eurovoc_76,true,organisations internationales,76,
+eurovoc_0406,true,cadre politique,0406,eurovoc_04
+eurovoc_0411,true,parti politique,0411,eurovoc_04
+eurovoc_0416,true,procédure électorale et vote,0416,eurovoc_04
+eurovoc_0421,true,Parlement,0421,eurovoc_04
+eurovoc_0426,true,travaux parlementaires,0426,eurovoc_04
+eurovoc_0431,true,vie politique et sécurité publique,0431,eurovoc_04
+eurovoc_0436,true,pouvoir exécutif et administration publique,0436,eurovoc_04
+eurovoc_0806,true,politique internationale,0806,eurovoc_08
+eurovoc_0811,true,politique de coopération,0811,eurovoc_08
+eurovoc_0816,true,sécurité internationale,0816,eurovoc_08
+eurovoc_0821,true,défense,0821,eurovoc_08
+eurovoc_1006,true,institutions de l'Union européenne et fonction publique européenne,1006,eurovoc_10
+eurovoc_1011,true,droit de l'Union européenne,1011,eurovoc_10
+eurovoc_1016,true,construction européenne,1016,eurovoc_10
+eurovoc_1021,true,finances de l'Union européenne,1021,eurovoc_10
+eurovoc_1206,true,sources et branches du droit,1206,eurovoc_12
+eurovoc_1211,true,droit civil,1211,eurovoc_12
+eurovoc_1216,true,droit pénal,1216,eurovoc_12
+eurovoc_1221,true,justice,1221,eurovoc_12
+eurovoc_1226,true,organisation de la justice,1226,eurovoc_12
+eurovoc_1231,true,droit international,1231,eurovoc_12
+eurovoc_1236,true,droits et libertés,1236,eurovoc_12
+eurovoc_1606,true,politique économique,1606,eurovoc_16
+eurovoc_1611,true,situation économique,1611,eurovoc_16
+eurovoc_1616,true,région et politique régionale,1616,eurovoc_16
+eurovoc_1621,true,structure économique,1621,eurovoc_16
+eurovoc_1626,true,comptabilité nationale,1626,eurovoc_16
+eurovoc_1631,true,analyse économique,1631,eurovoc_16
+eurovoc_2006,true,politique commerciale,2006,eurovoc_20
+eurovoc_2011,true,politique tarifaire,2011,eurovoc_20
+eurovoc_2016,true,échanges économiques,2016,eurovoc_20
+eurovoc_2021,true,commerce international,2021,eurovoc_20
+eurovoc_2026,true,consommation,2026,eurovoc_20
+eurovoc_2031,true,commercialisation,2031,eurovoc_20
+eurovoc_2036,true,distribution commerciale,2036,eurovoc_20
+eurovoc_2406,true,relations monétaires,2406,eurovoc_24
+eurovoc_2411,true,économie monétaire,2411,eurovoc_24
+eurovoc_2416,true,institutions financières et crédit,2416,eurovoc_24
+eurovoc_2421,true,libre circulation des capitaux,2421,eurovoc_24
+eurovoc_2426,true,investissement et financement,2426,eurovoc_24
+eurovoc_2431,true,assurance,2431,eurovoc_24
+eurovoc_2436,true,finances publiques et politique budgétaire,2436,eurovoc_24
+eurovoc_2441,true,budget,2441,eurovoc_24
+eurovoc_2446,true,fiscalité,2446,eurovoc_24
+eurovoc_2451,true,prix,2451,eurovoc_24
+eurovoc_2806,true,famille,2806,eurovoc_28
+eurovoc_2811,true,migration,2811,eurovoc_28
+eurovoc_2816,true,démographie et population,2816,eurovoc_28
+eurovoc_2821,true,cadre social,2821,eurovoc_28
+eurovoc_2826,true,vie sociale,2826,eurovoc_28
+eurovoc_2831,true,culture et religion,2831,eurovoc_28
+eurovoc_2836,true,protection sociale,2836,eurovoc_28
+eurovoc_2841,true,santé,2841,eurovoc_28
+eurovoc_2846,true,urbanisme et construction,2846,eurovoc_28
+eurovoc_3206,true,éducation,3206,eurovoc_32
+eurovoc_3211,true,enseignement,3211,eurovoc_32
+eurovoc_3216,true,organisation de l'enseignement,3216,eurovoc_32
+eurovoc_3221,true,documentation,3221,eurovoc_32
+eurovoc_3226,true,communication,3226,eurovoc_32
+eurovoc_3231,true,information et traitement de l'information,3231,eurovoc_32
+eurovoc_3236,true,informatique et traitement des données,3236,eurovoc_32
+eurovoc_3606,true,sciences naturelles et appliquées,3606,eurovoc_36
+eurovoc_3611,true,sciences humaines,3611,eurovoc_36
+eurovoc_4006,true,organisation de l'entreprise,4006,eurovoc_40
+eurovoc_4011,true,type d'entreprise,4011,eurovoc_40
+eurovoc_4016,true,forme juridique de société,4016,eurovoc_40
+eurovoc_4021,true,gestion administrative,4021,eurovoc_40
+eurovoc_4026,true,gestion comptable,4026,eurovoc_40
+eurovoc_4031,true,concurrence,4031,eurovoc_40
+eurovoc_4406,true,emploi,4406,eurovoc_44
+eurovoc_4411,true,marché du travail,4411,eurovoc_44
+eurovoc_4416,true,conditions et organisation du travail,4416,eurovoc_44
+eurovoc_4421,true,administration et rémunération du personnel,4421,eurovoc_44
+eurovoc_4426,true,relation et droit du travail,4426,eurovoc_44
+eurovoc_4806,true,politique des transports,4806,eurovoc_48
+eurovoc_4811,true,organisation des transports,4811,eurovoc_48
+eurovoc_4816,true,transport terrestre,4816,eurovoc_48
+eurovoc_4821,true,transports maritime et fluvial,4821,eurovoc_48
+eurovoc_4826,true,transports aérien et spatial,4826,eurovoc_48
+eurovoc_5206,true,politique de l'environnement,5206,eurovoc_52
+eurovoc_5211,true,milieu naturel,5211,eurovoc_52
+eurovoc_5216,true,détérioration de l'environnement,5216,eurovoc_52
+eurovoc_5606,true,politique agricole,5606,eurovoc_56
+eurovoc_5611,true,production et structures agricoles,5611,eurovoc_56
+eurovoc_5616,true,système d'exploitation agricole,5616,eurovoc_56
+eurovoc_5621,true,exploitation de la terre agricole,5621,eurovoc_56
+eurovoc_5626,true,moyen de production agricole,5626,eurovoc_56
+eurovoc_5631,true,activité agricole,5631,eurovoc_56
+eurovoc_5636,true,forêt,5636,eurovoc_56
+eurovoc_5641,true,pêche,5641,eurovoc_56
+eurovoc_6006,true,produit végétal,6006,eurovoc_60
+eurovoc_6011,true,produit animal,6011,eurovoc_60
+eurovoc_6016,true,produit agricole transformé,6016,eurovoc_60
+eurovoc_6021,true,boisson et sucre,6021,eurovoc_60
+eurovoc_6026,true,produit alimentaire,6026,eurovoc_60
+eurovoc_6031,true,indus. agro-alimentaire,6031,eurovoc_60
+eurovoc_6036,true,technologie alimentaire,6036,eurovoc_60
+eurovoc_6406,true,production,6406,eurovoc_64
+eurovoc_6411,true,technologie et réglementation technique,6411,eurovoc_64
+eurovoc_6416,true,recherche et propriété intellectuelle,6416,eurovoc_64
+eurovoc_6606,true,politique énergétique,6606,eurovoc_66
+eurovoc_6611,true,industries charbonnière et minière,6611,eurovoc_66
+eurovoc_6616,true,industrie pétrolière,6616,eurovoc_66
+eurovoc_6621,true,industries nucléaire et électrique,6621,eurovoc_66
+eurovoc_6626,true,énergie douce,6626,eurovoc_66
+eurovoc_6806,true,politique et structures industrielles,6806,eurovoc_68
+eurovoc_6811,true,chimie,6811,eurovoc_68
+eurovoc_6816,true,métallurgie et sidérurgie,6816,eurovoc_68
+eurovoc_6821,true,industrie mécanique,6821,eurovoc_68
+eurovoc_6826,true,électronique et électrotechnique,6826,eurovoc_68
+eurovoc_6831,true,bâtiment et travaux publics,6831,eurovoc_68
+eurovoc_6836,true,industrie du bois,6836,eurovoc_68
+eurovoc_6841,true,industries du cuir et du textile,6841,eurovoc_68
+eurovoc_6846,true,industries diverses,6846,eurovoc_68
+eurovoc_7206,true,Europe,7206,eurovoc_72
+eurovoc_7211,true,régions des États membres de l'Union européenne,7211,eurovoc_72
+eurovoc_7216,true,Amérique,7216,eurovoc_72
+eurovoc_7221,true,Afrique,7221,eurovoc_72
+eurovoc_7226,true,Asie - Océanie,7226,eurovoc_72
+eurovoc_7231,true,géographie économique,7231,eurovoc_72
+eurovoc_7236,true,géographie politique,7236,eurovoc_72
+eurovoc_7241,true,pays et territoires d'outre-mer,7241,eurovoc_72
+eurovoc_7606,true,Nations unies,7606,eurovoc_76
+eurovoc_7611,true,organisations européennes,7611,eurovoc_76
+eurovoc_7616,true,organisations extra-européennes,7616,eurovoc_76
+eurovoc_7621,true,organisations mondiales,7621,eurovoc_76
+eurovoc_7626,true,organisations non gouvernementales,7626,eurovoc_76

@@ -23,6 +23,7 @@
         'wizard/import_seances_votes_views.xml',
         'wizard/wizard_actions_menus.xml',
         'data/website_menu.xml',
+        'data/belgium_tracker.programme_tag.csv',
     ],
     'application': True,
 }

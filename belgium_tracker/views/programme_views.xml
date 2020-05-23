@@ -75,6 +75,7 @@
       <field name="model">belgium_tracker.programme_tag</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="code"/>
           <field name="display_name"/>
         </tree>
       </field>
@@ -87,6 +88,7 @@
           <sheet>
             <group>
               <field name="name"/>
+              <field name="code"/>
               <field name="parent_id"/>
             </group>
           </sheet>
