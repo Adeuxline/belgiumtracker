@@ -26,6 +26,7 @@ class Vote(models.Model):
     total_non = fields.Integer(compute='_compute_totaux', store=True)
     total_abstentions = fields.Integer(compute='_compute_totaux', store=True)
     total_autres = fields.Integer(compute='_compute_totaux', store=True)
+    tags_ids = fields.Many2many('belgium_tracker.programme_tag')
 
     json_data = fields.Char(compute='_compute_json_data')
 
