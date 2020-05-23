@@ -17,6 +17,7 @@
         'views/seance_views.xml',
         'views/vote_views.xml',
         'views/actions_menus.xml',
+        'templates/assets.xml',
         'templates/deputes_templates.xml',
         'wizard/import_deputes_views.xml',
         'wizard/import_seances_votes_views.xml',

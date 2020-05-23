@@ -26,7 +26,9 @@
                 <field name="choix_ids" mode="tree" context="{'default_vote_id': active_id}">
                   <tree>
                     <field name="depute_id"/>
+                    <field name="parti_id"/>
                     <field name="choix"/>
+                    <field name="fidelite"/>
                   </tree>
                 </field>
               </page>

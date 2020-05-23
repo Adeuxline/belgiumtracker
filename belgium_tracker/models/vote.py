@@ -1,4 +1,6 @@
 # coding: utf-8
+import json
+
 from odoo import api, models, fields
 
 
@@ -25,6 +27,8 @@ class Vote(models.Model):
     total_abstentions = fields.Integer(compute='_compute_totaux', store=True)
     total_autres = fields.Integer(compute='_compute_totaux', store=True)
 
+    json_data = fields.Char(compute='_compute_json_data')
+
     @api.depends('choix_ids.choix')
     def _compute_totaux(self):
         for vote in self:
@@ -33,3 +37,11 @@ class Vote(models.Model):
             vote.total_non = len([c for c in liste_choix if c.choix == 'contre'])
             vote.total_abstentions = len([c for c in liste_choix if c.choix == 'abs'])
             vote.total_autres = len([c for c in liste_choix if not c.choix])
+
+    @api.depends('total_oui', 'total_non', 'total_abstentions')
+    def _compute_json_data(self):
+        for vote in self:
+            vote.json_data = json.dumps([{"label": "Oui", "value": self.total_oui},
+                                         {"label": "Non", "value": self.total_non},
+                                         {"label": "Abstentions", "value": self.total_abstentions}
+                                         ])

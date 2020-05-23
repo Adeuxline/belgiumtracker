@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+<template id="assets_frontend" inherit_id="website.assets_frontend" name="Belgium Tracker Website Assets">
+    <xpath expr="//link[last()]" position="after">
+        <link href="/web/static/lib/nvd3/nv.d3.css" rel="stylesheet" type="text/css"></link>
+    </xpath>
+    <xpath expr="//script[last()]" position="after">
+        <script src="/web/static/lib/nvd3/d3.v3.js"></script>
+        <script src="/web/static/lib/nvd3/nv.d3.js"></script>
+    </xpath>
+</template>
+
+</odoo>

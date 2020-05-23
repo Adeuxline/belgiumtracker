@@ -13,6 +13,8 @@ class Choix(models.Model):
     choix = fields.Selection([('pour', 'Pour'),
                               ('contre', 'Contre'),
                               ('abs', 'Abstention')])
+    fidelite = fields.Selection([('loyal', 'Loyal'),
+                                 ('rebelle', 'Rebelle')], default=False, compute='_compute_fidelite')
 
     _sql_constraints = [
         ('vote_depute_unique', 'UNIQUE(vote_id,depute_id)', "Un député ne peut voter qu'une fois.")
@@ -22,6 +24,31 @@ class Choix(models.Model):
     def _compute_display_name(self):
         for choix in self:
             choix.display_name = "%s %s %s" % (choix.depute_id.display_name, choix.choix, choix.vote_id.display_name)
+
+    @api.depends('choix', 'vote_id', 'parti_id', 'vote_id.choix_ids')
+    def _compute_fidelite(self):
+        for c in self:
+            counter_pour = self.search([('vote_id', '=', c.vote_id.id), ('parti_id', '=', c.parti_id.id), ('choix', '=', 'pour')], count=True)
+            counter_contre = self.search([('vote_id', '=', c.vote_id.id), ('parti_id', '=', c.parti_id.id), ('choix', '=', 'contre')], count=True)
+            counter_abs = self.search([('vote_id', '=', c.vote_id.id), ('parti_id', '=', c.parti_id.id), ('choix', '=', 'abs')], count=True)
+            biggest_group = max([counter_pour, counter_contre, counter_abs])
+            if c.choix == 'pour':
+                if counter_pour == biggest_group:
+                    c.fidelite = 'loyal'
+                else:
+                    c.fidelite = 'rebelle'
+            elif c.choix == 'contre':
+                if counter_contre == biggest_group:
+                    c.fidelite = 'loyal'
+                else:
+                    c.fidelite = 'rebelle'
+            elif c.choix == 'abs':
+                if counter_abs == biggest_group:
+                    c.fidelite = 'loyal'
+                else:
+                    c.fidelite = 'rebelle'
+            else:
+                c.fidelite = False
 
     @api.model_create_multi
     def create(self, vals_list):
